@@ -85,3 +85,5 @@ GraphQL API). Weekend-timeboxed gap project — a demo, not a product.
    milestone at a time.
 3. `dev_project_plan.md` — original plan; background on rationale and
    interview framing.
+4. `AGENTS.md` — Next.js 16 rules: read the bundled guides in
+   `node_modules/next/dist/docs/` before writing Next-specific code.
