@@ -13,16 +13,17 @@ the same commit as the code. Never commit to main.
 ---
 
 ## Milestone 1 — Shopify foundation (~1.5h) — `milestone/m1-shopify`
-- [ ] [human] Create free Shopify Partners account → create a development store
-- [ ] [human] Add ~6 food-themed fake products across 2–3 collections (images, prices)
-- [ ] [human] Create a custom app, enable Storefront API access, generate the
+- [x] [human] Create free Shopify Partners account → create a development store
+- [x] [human] Add ~6 food-themed fake products across 2–3 collections (images, prices)
+- [x] [human] Create a custom app, enable Storefront API access, generate the
       **Storefront API access token**; note the API version
 - [x] [agent] Draft the products test query (with a shared product fragment) to
       run in Shopify's GraphiQL explorer
-- [ ] [human] Run the query in GraphiQL successfully; skim Storefront docs for
+- [x] [human] Run the query in GraphiQL successfully; skim Storefront docs for
       the object model (products, collections, cart)
 
 **✅ Done when:** products query returns real store data in GraphiQL.
+**✅ COMPLETE (2026-07-14)** — via the Headless channel (legacy custom apps deprecated Jan 2026); verified with curl against `/api/2026-07/graphql.json`, 6 products returned.
 
 ## Milestone 2 — GraphQL client work (~3h) — `milestone/m2-graphql`
 - [x] [agent] Scaffold Next.js app (App Router, TS strict); `.env.example` with
