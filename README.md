@@ -1,36 +1,107 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🥬 Fresh Picks
+
+![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
+![Shopify](https://img.shields.io/badge/Shopify-Storefront%20API-96BF48?logo=shopify&logoColor=white)
+![TanStack Query](https://img.shields.io/badge/TanStack%20Query-5-FF4154?logo=reactquery&logoColor=white)
+![Zod](https://img.shields.io/badge/Zod-4-3E67B1?logo=zod&logoColor=white)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+
+A headless Shopify storefront: browse a cursor-paginated product grid, filter
+by collection, open a product page, and add to cart, all against the Shopify
+Storefront GraphQL API. Built with the Next.js App Router, TypeScript strict,
+TanStack Query, and zod validation at every API boundary.
+
+> **Why build this?** A weekend-timeboxed learning project: real Shopify and
+> GraphQL work end to end, with a deliberately thin `fetch` client instead of a
+> GraphQL SDK. Writing the queries, fragments, cursors, and cart mutations by
+> hand is the point.
+
+## 🚧 Roadmap
+
+Built milestone by milestone over a weekend. Current state:
+
+- ✅ **Shopify foundation.** Dev store with food-themed products, Headless
+  channel, Storefront API token verified in GraphiQL.
+- ✅ **GraphQL client work.** Typed `fetch` client, catalog queries with
+  fragments and cursor pagination, cart mutations, TanStack Query wiring,
+  browse-to-cart flow working end to end.
+- ⏳ **TDD'd cart logic.** Pure cart math module written strict
+  red-green-refactor with Vitest.
+- ⏳ **BFF + service contract.** A `/api/products` route that validates the
+  upstream response against a versioned zod schema and fails loudly.
+- ⏳ **A/B experimentation.** One PostHog feature-flag experiment (hero CTA
+  copy) with exposure and conversion events.
+- ⏳ **Observability + CI/CD.** Sentry, a Given/When/Then Playwright e2e, and a
+  GitHub Actions pipeline (typecheck, lint, unit, e2e) with Vercel deploys.
+
+## Features
+
+- 🛍️ **Cursor-paginated product grid.** `first`/`after` pagination with a
+  shared product fragment and variables throughout.
+- 🏷️ **Collection filter.** Filter the grid by collection, with the selection
+  reflected in the URL search params.
+- 📄 **Product detail by handle.** Grid to product page with variant pricing.
+- 🛒 **Minimal cart.** `cartCreate` / `cartLinesAdd` mutations with a live
+  cart count in the header.
+- 🔌 **Thin typed GraphQL client.** A plain `fetch` wrapper, no SDK: endpoint
+  construction, token header, and loud errors on non-200 responses or GraphQL
+  errors.
+- 🧩 **Domain-driven structure.** Business logic lives in framework-free
+  domain modules (`catalog`, `cart`); routes and components are thin
+  consumers; zod narrows `unknown` at every boundary.
+
+## Tech Stack
+
+| Layer      | Technology                                           |
+| ---------- | ---------------------------------------------------- |
+| Framework  | Next.js 16 (App Router), React 19, TypeScript 5      |
+| Backend    | Shopify dev store, Storefront GraphQL API (2026-07)  |
+| Data layer | TanStack Query 5, thin typed `fetch` client          |
+| Validation | Zod 4 (schemas + inferred types at boundaries)       |
+| UI         | Tailwind CSS 4                                       |
+| Testing    | Vitest 4 (Playwright e2e planned)                    |
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 20+
+- A Shopify development store with the Headless channel enabled and a
+  Storefront API access token ([docs](https://shopify.dev/docs/storefronts/headless/building-with-the-storefront-api/getting-started))
+
+### Run locally
 
 ```bash
+# 1. Install dependencies
+npm install
+
+# 2. Set up environment variables
+cp .env.example .env.local   # then fill in your store domain and token
+
+# 3. Run the dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to browse the storefront.
+See [`.env.example`](./.env.example) for the required variables; the
+Storefront token is a public token by design.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Other scripts: `npm run test` (Vitest), `npm run typecheck`, `npm run lint`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## How It Works
 
-## Learn More
+1. Client components call TanStack Query hooks owned by each domain
+   (`src/domains/catalog/hooks.ts`, `src/domains/cart/hooks.ts`).
+2. Hooks execute GraphQL documents (fragments, variables, cursors) through the
+   thin client in `src/lib/shopify/`, which posts to
+   `/api/<version>/graphql.json` and throws on any non-200 or GraphQL error.
+3. Responses are parsed with zod schemas in each domain; invalid data fails
+   loudly instead of rendering silently wrong.
+4. Dependencies point inward: `app/` → `domains/` → `lib/`. Domain logic
+   imports nothing from React or Next, which keeps it unit-testable with zero
+   mocks.
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[MIT](./LICENSE)
