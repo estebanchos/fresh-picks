@@ -28,7 +28,7 @@ the same commit as the code. Never commit to main.
 ## Milestone 2 — GraphQL client work (~3h) — `milestone/m2-graphql`
 - [x] [agent] Scaffold Next.js app (App Router, TS strict); `.env.example` with
       `SHOPIFY_STORE_DOMAIN`, `SHOPIFY_STOREFRONT_TOKEN`, API version
-- [ ] [human] Fill `.env.local` with real values (never committed)
+- [x] [human] Fill `.env.local` with real values (never committed)
 - [x] [agent] `src/lib/shopify/` — thin typed GraphQL `fetch` client: endpoint
       construction, token header, throws loudly on non-200 and GraphQL errors
 - [x] [agent] `src/domains/catalog/` — product fragment; product list query with
@@ -39,11 +39,12 @@ the same commit as the code. Never commit to main.
       (`catalog/hooks.ts`, `cart/hooks.ts`) with loading/error states
 - [x] [agent] UI (thin, in `app/`): product grid with pagination + collection
       filter → product detail page → add-to-cart button → cart count in header
-- [ ] [human] Manually verify grid → product page → add to cart end to end
-- [ ] [human] 📝 Learning log: 3–4 honest GraphQL observations (cursor vs offset
+- [x] [human] Manually verify grid → product page → add to cart end to end
+- [x] [human] 📝 Learning log: 3–4 honest GraphQL observations (cursor vs offset
       pagination, over/under-fetching, fragments and component data ownership)
 
 **✅ Done when:** browse → product → add to cart works end to end locally.
+**✅ COMPLETE (2026-07-14)** — verified against the live dev store; also shipped: TanStack Query devtools, collection filter in URL search params.
 
 ## Milestone 2a — TDD the cart logic (~1.5h) — `milestone/m2a-cart-tdd`
 - [ ] [pair] Confirm the module: cart math in `src/domains/cart/logic.ts`
