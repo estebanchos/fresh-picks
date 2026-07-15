@@ -13,36 +13,38 @@ the same commit as the code. Never commit to main.
 ---
 
 ## Milestone 1 — Shopify foundation (~1.5h) — `milestone/m1-shopify`
-- [ ] [human] Create free Shopify Partners account → create a development store
-- [ ] [human] Add ~6 food-themed fake products across 2–3 collections (images, prices)
-- [ ] [human] Create a custom app, enable Storefront API access, generate the
+- [x] [human] Create free Shopify Partners account → create a development store
+- [x] [human] Add ~6 food-themed fake products across 2–3 collections (images, prices)
+- [x] [human] Create a custom app, enable Storefront API access, generate the
       **Storefront API access token**; note the API version
-- [ ] [agent] Draft the products test query (with a shared product fragment) to
+- [x] [agent] Draft the products test query (with a shared product fragment) to
       run in Shopify's GraphiQL explorer
-- [ ] [human] Run the query in GraphiQL successfully; skim Storefront docs for
+- [x] [human] Run the query in GraphiQL successfully; skim Storefront docs for
       the object model (products, collections, cart)
 
 **✅ Done when:** products query returns real store data in GraphiQL.
+**✅ COMPLETE (2026-07-14)** — via the Headless channel (legacy custom apps deprecated Jan 2026); verified with curl against `/api/2026-07/graphql.json`, 6 products returned.
 
 ## Milestone 2 — GraphQL client work (~3h) — `milestone/m2-graphql`
-- [ ] [agent] Scaffold Next.js app (App Router, TS strict); `.env.example` with
+- [x] [agent] Scaffold Next.js app (App Router, TS strict); `.env.example` with
       `SHOPIFY_STORE_DOMAIN`, `SHOPIFY_STOREFRONT_TOKEN`, API version
-- [ ] [human] Fill `.env.local` with real values (never committed)
-- [ ] [agent] `src/lib/shopify/` — thin typed GraphQL `fetch` client: endpoint
+- [x] [human] Fill `.env.local` with real values (never committed)
+- [x] [agent] `src/lib/shopify/` — thin typed GraphQL `fetch` client: endpoint
       construction, token header, throws loudly on non-200 and GraphQL errors
-- [ ] [agent] `src/domains/catalog/` — product fragment; product list query with
+- [x] [agent] `src/domains/catalog/` — product fragment; product list query with
       `first`/`after` cursor pagination; product-by-handle query; collection
       filter query; zod schemas + inferred types
-- [ ] [agent] `src/domains/cart/mutations.ts` — `cartCreate` and `cartLinesAdd`
-- [ ] [agent] Wire TanStack Query: provider + per-domain hooks
+- [x] [agent] `src/domains/cart/mutations.ts` — `cartCreate` and `cartLinesAdd`
+- [x] [agent] Wire TanStack Query: provider + per-domain hooks
       (`catalog/hooks.ts`, `cart/hooks.ts`) with loading/error states
-- [ ] [agent] UI (thin, in `app/`): product grid with pagination + collection
+- [x] [agent] UI (thin, in `app/`): product grid with pagination + collection
       filter → product detail page → add-to-cart button → cart count in header
-- [ ] [human] Manually verify grid → product page → add to cart end to end
-- [ ] [human] 📝 Learning log: 3–4 honest GraphQL observations (cursor vs offset
+- [x] [human] Manually verify grid → product page → add to cart end to end
+- [x] [human] 📝 Learning log: 3–4 honest GraphQL observations (cursor vs offset
       pagination, over/under-fetching, fragments and component data ownership)
 
 **✅ Done when:** browse → product → add to cart works end to end locally.
+**✅ COMPLETE (2026-07-14)** — verified against the live dev store; also shipped: TanStack Query devtools, collection filter in URL search params.
 
 ## Milestone 2a — TDD the cart logic (~1.5h) — `milestone/m2a-cart-tdd`
 - [ ] [pair] Confirm the module: cart math in `src/domains/cart/logic.ts`
