@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 import { useProducts } from "@/domains/catalog/hooks";
 
@@ -8,7 +8,24 @@ import { CollectionFilter } from "./collection-filter";
 import { ProductCard } from "./product-card";
 
 export function ProductGrid() {
-  const [collection, setCollection] = useState<string | null>(null);
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const collection = searchParams.get("collection");
+
+  const setCollection = (handle: string | null) => {
+    const params = new URLSearchParams(searchParams);
+    if (handle) {
+      params.set("collection", handle);
+    } else {
+      params.delete("collection");
+    }
+    const query = params.toString();
+    router.replace(query ? `${pathname}?${query}` : pathname, {
+      scroll: false,
+    });
+  };
+
   const {
     data,
     error,
