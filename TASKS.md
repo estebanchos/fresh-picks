@@ -47,12 +47,12 @@ the same commit as the code. Never commit to main.
 **✅ COMPLETE (2026-07-14)** — verified against the live dev store; also shipped: TanStack Query devtools, collection filter in URL search params.
 
 ## Milestone 2a — TDD the cart logic (~1.5h) — `milestone/m2a-cart-tdd`
-- [ ] [pair] Confirm the module: cart math in `src/domains/cart/logic.ts`
+- [x] [pair] Confirm the module: cart math in `src/domains/cart/logic.ts`
       (line totals, quantity updates, empty/edge states) — pure, framework-free
-- [ ] [pair] Strict red-green-refactor with Vitest: failing test FIRST →
+- [x] [pair] Strict red-green-refactor with Vitest: failing test FIRST →
       minimal implementation → refactor → full suite. One behavior at a time,
       8–10 tests total. **No exceptions for this module.**
-- [ ] [agent] Wire the tested logic into the cart hooks/UI
+- [x] [agent] Wire the tested logic into the cart hooks/UI
 - [ ] [human] 📝 Learning log: one honest sentence on where TDD helped and
       where it felt slow
 
