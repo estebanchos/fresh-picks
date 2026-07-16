@@ -102,9 +102,9 @@ the same commit as the code. Never commit to main.
       cart count updates
 - [x] [agent] GitHub Actions workflow on every push: typecheck → lint →
       Vitest → Playwright
-- [ ] [human] Push repo to GitHub; connect to Vercel: preview deploys per
+- [x] [human] Push repo to GitHub; connect to Vercel: preview deploys per
       branch, auto-deploy on main; add env vars in Vercel
-- [ ] [pair] Prove the boundary: open a PR with a deliberately failing test →
+- [x] [pair] Prove the boundary: open a PR with a deliberately failing test →
       confirm it blocks itself → fix → merge → confirm auto-deploy
 
 **✅ Done when:** a failing-test PR blocks itself and merging to main deploys.
