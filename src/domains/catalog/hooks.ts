@@ -5,50 +5,44 @@ import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import { shopifyFetch } from "@/lib/shopify/client";
 
 import {
-  COLLECTIONS_QUERY,
-  COLLECTION_PRODUCTS_QUERY,
-  PRODUCTS_QUERY,
-  PRODUCT_BY_HANDLE_QUERY,
-} from "./queries";
+  productsPayloadV1Schema,
+  type ProductsPayloadV1,
+} from "./contract";
+import { COLLECTIONS_QUERY, PRODUCT_BY_HANDLE_QUERY } from "./queries";
 import {
-  collectionProductsResponseSchema,
   collectionsResponseSchema,
   productByHandleResponseSchema,
-  productsResponseSchema,
-  type ProductPage,
 } from "./schema";
 
-const PAGE_SIZE = 6;
-
-async function fetchProductPage(
-  collectionHandle: string | null,
+/** The grid consumes our BFF (service contract), not Shopify directly. */
+async function fetchProductsPayload(
+  collection: string | null,
   after: string | null,
-): Promise<ProductPage> {
-  if (collectionHandle) {
-    const data = collectionProductsResponseSchema.parse(
-      await shopifyFetch(COLLECTION_PRODUCTS_QUERY, {
-        handle: collectionHandle,
-        first: PAGE_SIZE,
-        after,
-      }),
-    );
-    if (!data.collection) {
-      throw new Error(`Collection not found: ${collectionHandle}`);
-    }
-    return data.collection.products;
+): Promise<ProductsPayloadV1> {
+  const params = new URLSearchParams();
+  if (collection) params.set("collection", collection);
+  if (after) params.set("after", after);
+  const query = params.toString();
+
+  const res = await fetch(`/api/products${query ? `?${query}` : ""}`);
+  if (!res.ok) {
+    const body: unknown = await res.json().catch(() => null);
+    const upstream =
+      body && typeof body === "object" && "error" in body
+        ? String((body as { error: unknown }).error)
+        : `HTTP ${res.status}`;
+    throw new Error(`Products BFF failed: ${upstream}`);
   }
 
-  const data = productsResponseSchema.parse(
-    await shopifyFetch(PRODUCTS_QUERY, { first: PAGE_SIZE, after }),
-  );
-  return data.products;
+  return productsPayloadV1Schema.parse(await res.json());
 }
 
 /** Cursor-paginated product list, optionally scoped to a collection. */
 export function useProducts(collectionHandle: string | null) {
   return useInfiniteQuery({
     queryKey: ["catalog", "products", collectionHandle],
-    queryFn: ({ pageParam }) => fetchProductPage(collectionHandle, pageParam),
+    queryFn: ({ pageParam }) =>
+      fetchProductsPayload(collectionHandle, pageParam),
     initialPageParam: null as string | null,
     getNextPageParam: (lastPage) =>
       lastPage.pageInfo.hasNextPage ? lastPage.pageInfo.endCursor : null,

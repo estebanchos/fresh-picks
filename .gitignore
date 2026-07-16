@@ -40,3 +40,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 !.env.example
+
+# personal
+fresh-picks-learnings.md
+
+# playwright
+/test-results/
+/playwright-report/

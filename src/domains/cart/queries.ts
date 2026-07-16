@@ -3,6 +3,22 @@ export const CART_FRAGMENT = /* GraphQL */ `
     id
     totalQuantity
     checkoutUrl
+    lines(first: 50) {
+      nodes {
+        id
+        quantity
+        merchandise {
+          ... on ProductVariant {
+            id
+            title
+            price {
+              amount
+              currencyCode
+            }
+          }
+        }
+      }
+    }
   }
 `;
 

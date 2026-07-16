@@ -47,57 +47,60 @@ the same commit as the code. Never commit to main.
 **✅ COMPLETE (2026-07-14)** — verified against the live dev store; also shipped: TanStack Query devtools, collection filter in URL search params.
 
 ## Milestone 2a — TDD the cart logic (~1.5h) — `milestone/m2a-cart-tdd`
-- [ ] [pair] Confirm the module: cart math in `src/domains/cart/logic.ts`
+- [x] [pair] Confirm the module: cart math in `src/domains/cart/logic.ts`
       (line totals, quantity updates, empty/edge states) — pure, framework-free
-- [ ] [pair] Strict red-green-refactor with Vitest: failing test FIRST →
+- [x] [pair] Strict red-green-refactor with Vitest: failing test FIRST →
       minimal implementation → refactor → full suite. One behavior at a time,
       8–10 tests total. **No exceptions for this module.**
-- [ ] [agent] Wire the tested logic into the cart hooks/UI
-- [ ] [human] 📝 Learning log: one honest sentence on where TDD helped and
+- [x] [agent] Wire the tested logic into the cart hooks/UI
+- [x] [human] 📝 Learning log: one honest sentence on where TDD helped and
       where it felt slow
 
 **✅ Done when:** 8–10 unit tests exist that predate the code they test.
+**✅ COMPLETE (2026-07-16)** — 11 logic tests + toCartLines mapper test, strict red-green-refactor throughout; header summary now computed by the tested module.
 
 ## Milestone 2b — BFF + service contract (~1.5h) — `milestone/m2b-bff`
 **[CUT FIRST IF SHORT ON TIME]**
-- [ ] [agent] Versioned zod schema for the product-grid payload — this is the
+- [x] [agent] Versioned zod schema for the product-grid payload — this is the
       service contract
-- [ ] [agent] `app/api/products/` route: calls Storefront API, validates the
+- [x] [agent] `app/api/products/` route: calls Storefront API, validates the
       upstream response against the schema, returns our own typed shape
-- [ ] [agent] One integration test against the route: an invalid upstream
+- [x] [agent] One integration test against the route: an invalid upstream
       response fails loudly
-- [ ] [agent] Switch the product grid to consume `/api/products` instead of
+- [x] [agent] Switch the product grid to consume `/api/products` instead of
       Shopify directly
-- [ ] [human] Verify the failure mode (feed it a broken response; watch it fail
+- [x] [human] Verify the failure mode (feed it a broken response; watch it fail
       loudly, not silently)
 
 **✅ Done when:** grid consumes the BFF, and bad upstream data fails loudly.
+**✅ COMPLETE (2026-07-16)** — grid on /api/products; 502 + explicit error verified manually and pinned by integration tests.
 
 ## Milestone 3 — Experimentation (~2h) — `milestone/m3-experiment`
-- [ ] [human] Create PostHog project; get project API key into `.env.local`
-- [ ] [agent] `src/lib/posthog/` client init + provider (no PII in events)
-- [ ] [human] Create the feature flag / experiment in the PostHog dashboard:
+- [x] [human] Create PostHog project; get project API key into `.env.local`
+- [x] [agent] `src/lib/posthog/` client init + provider (no PII in events)
+- [x] [human] Create the feature flag / experiment in the PostHog dashboard:
       hero CTA copy variant A/B
-- [ ] [agent] `src/domains/experimentation/` — read the flag, render CTA
+- [x] [agent] `src/domains/experimentation/` — read the flag, render CTA
       variant, fire **exposure** event on assignment and **conversion** events
       (CTA click → add-to-cart)
-- [ ] [human] Generate test traffic across both variants; let data collect
-- [ ] [human] Screenshot the experiment dashboard
-- [ ] [human] 📝 Check: can you explain assignment, exposure, and conversion
+- [x] [human] Generate test traffic across both variants; let data collect
+- [x] [human] Screenshot the experiment dashboard
+- [x] [human] 📝 Check: can you explain assignment, exposure, and conversion
       tracking in one breath, as an engineer?
 
 **✅ Done when:** dashboard shows exposures and conversions for both variants.
+**✅ COMPLETE (2026-07-16)** — experiment live, exposures + funnel conversions in both arms, dashboard screenshot captured. (Debug note: env var name mismatch cost ~30 min; PostHog UA-filters agent/bot browsers by design.)
 
 ## Milestone 4 — Observability, e2e, CI/CD (~2.5h) — `milestone/m4-ci-observability`
-- [ ] [human] Create Sentry project; DSN into env
-- [ ] [agent] Wire `@sentry/nextjs` (client + server config)
-- [ ] [agent] Throw one deliberate error → [human] confirm capture in the
+- [x] [human] Create Sentry project; DSN into env
+- [x] [agent] Wire `@sentry/nextjs` (client + server config)
+- [x] [agent] Throw one deliberate error → [human] confirm capture in the
       Sentry dashboard → [agent] fix it
 - [ ] [human] Read a 10-minute Gherkin primer (so BDD claims stay honest)
-- [ ] [agent] One Playwright e2e in Given/When/Then structure: **given** the
+- [x] [agent] One Playwright e2e in Given/When/Then structure: **given** the
       landing page, **when** I open a product and add to cart, **then** the
       cart count updates
-- [ ] [agent] GitHub Actions workflow on every push: typecheck → lint →
+- [x] [agent] GitHub Actions workflow on every push: typecheck → lint →
       Vitest → Playwright
 - [ ] [human] Push repo to GitHub; connect to Vercel: preview deploys per
       branch, auto-deploy on main; add env vars in Vercel
