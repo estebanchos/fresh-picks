@@ -111,12 +111,12 @@ the same commit as the code. Never commit to main.
 **✅ COMPLETE (2026-07-16)** — PR #1 blocked red, merged green, auto-deployed to https://fresh-picks-smoky.vercel.app (Gherkin primer read pending, non-blocking). Debug note: CI secret name mismatch, found via gh secret list.
 
 ## Milestone 5 — Ship + tell (~1h) — `milestone/m5-ship`
-- [ ] [human] Final deploy check on the production Vercel URL
+- [x] [human] Final deploy check on the production Vercel URL (agent-verified: full browse→add-to-cart journey on prod, cart badge updates)
 - [x] [pair] README: authored by Carlos (house style); agent added CI badge,
       live-demo link, and roadmap/tech-stack updates
 - [x] ~~Learning-log section in README~~ — decision: learning log stays in
       Carlos's private notes, not in the README
-- [ ] [human] Update claims: GraphQL → "Working"; Shopify → "basic familiarity,
+- [x] [human] Update claims: GraphQL → "Working"; Shopify → "basic familiarity,
       built a headless dev-store storefront"
 - [ ] [pair] Résumé: add the one-line Technical Projects entry and slot it into
       the tailored docx (before the technical round)
