@@ -61,13 +61,13 @@ the same commit as the code. Never commit to main.
 
 ## Milestone 2b — BFF + service contract (~1.5h) — `milestone/m2b-bff`
 **[CUT FIRST IF SHORT ON TIME]**
-- [ ] [agent] Versioned zod schema for the product-grid payload — this is the
+- [x] [agent] Versioned zod schema for the product-grid payload — this is the
       service contract
-- [ ] [agent] `app/api/products/` route: calls Storefront API, validates the
+- [x] [agent] `app/api/products/` route: calls Storefront API, validates the
       upstream response against the schema, returns our own typed shape
-- [ ] [agent] One integration test against the route: an invalid upstream
+- [x] [agent] One integration test against the route: an invalid upstream
       response fails loudly
-- [ ] [agent] Switch the product grid to consume `/api/products` instead of
+- [x] [agent] Switch the product grid to consume `/api/products` instead of
       Shopify directly
 - [ ] [human] Verify the failure mode (feed it a broken response; watch it fail
       loudly, not silently)
