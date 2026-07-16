@@ -53,7 +53,7 @@ export function ProductGrid() {
         <>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {data.pages
-              .flatMap((page) => page.nodes)
+              .flatMap((page) => page.products)
               .map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
