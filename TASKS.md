@@ -93,14 +93,14 @@ the same commit as the code. Never commit to main.
 
 ## Milestone 4 — Observability, e2e, CI/CD (~2.5h) — `milestone/m4-ci-observability`
 - [ ] [human] Create Sentry project; DSN into env
-- [ ] [agent] Wire `@sentry/nextjs` (client + server config)
+- [x] [agent] Wire `@sentry/nextjs` (client + server config)
 - [ ] [agent] Throw one deliberate error → [human] confirm capture in the
       Sentry dashboard → [agent] fix it
 - [ ] [human] Read a 10-minute Gherkin primer (so BDD claims stay honest)
-- [ ] [agent] One Playwright e2e in Given/When/Then structure: **given** the
+- [x] [agent] One Playwright e2e in Given/When/Then structure: **given** the
       landing page, **when** I open a product and add to cart, **then** the
       cart count updates
-- [ ] [agent] GitHub Actions workflow on every push: typecheck → lint →
+- [x] [agent] GitHub Actions workflow on every push: typecheck → lint →
       Vitest → Playwright
 - [ ] [human] Push repo to GitHub; connect to Vercel: preview deploys per
       branch, auto-deploy on main; add env vars in Vercel
