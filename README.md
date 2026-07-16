@@ -1,5 +1,6 @@
 # 🥬 Fresh Picks
 
+[![CI](https://github.com/estebanchos/fresh-picks/actions/workflows/ci.yml/badge.svg)](https://github.com/estebanchos/fresh-picks/actions/workflows/ci.yml)
 ![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
 ![Shopify](https://img.shields.io/badge/Shopify-Storefront%20API-96BF48?logo=shopify&logoColor=white)

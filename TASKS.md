@@ -108,6 +108,7 @@ the same commit as the code. Never commit to main.
       confirm it blocks itself → fix → merge → confirm auto-deploy
 
 **✅ Done when:** a failing-test PR blocks itself and merging to main deploys.
+**✅ COMPLETE (2026-07-16)** — PR #1 blocked red, merged green, auto-deployed to https://fresh-picks-smoky.vercel.app (Gherkin primer read pending, non-blocking). Debug note: CI secret name mismatch, found via gh secret list.
 
 ## Milestone 5 — Ship + tell (~1h) — `milestone/m5-ship`
 - [ ] [human] Final deploy check on the production Vercel URL
