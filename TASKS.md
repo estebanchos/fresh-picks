@@ -77,10 +77,10 @@ the same commit as the code. Never commit to main.
 
 ## Milestone 3 — Experimentation (~2h) — `milestone/m3-experiment`
 - [ ] [human] Create PostHog project; get project API key into `.env.local`
-- [ ] [agent] `src/lib/posthog/` client init + provider (no PII in events)
+- [x] [agent] `src/lib/posthog/` client init + provider (no PII in events)
 - [ ] [human] Create the feature flag / experiment in the PostHog dashboard:
       hero CTA copy variant A/B
-- [ ] [agent] `src/domains/experimentation/` — read the flag, render CTA
+- [x] [agent] `src/domains/experimentation/` — read the flag, render CTA
       variant, fire **exposure** event on assignment and **conversion** events
       (CTA click → add-to-cart)
 - [ ] [human] Generate test traffic across both variants; let data collect
