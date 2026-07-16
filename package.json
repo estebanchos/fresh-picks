@@ -11,8 +11,10 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@posthog/react": "^1.10.3",
     "@tanstack/react-query": "^5.101.2",
     "next": "16.2.10",
+    "posthog-js": "^1.402.3",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "zod": "^4.4.3"
