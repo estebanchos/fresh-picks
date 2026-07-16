@@ -92,9 +92,9 @@ the same commit as the code. Never commit to main.
 **✅ COMPLETE (2026-07-16)** — experiment live, exposures + funnel conversions in both arms, dashboard screenshot captured. (Debug note: env var name mismatch cost ~30 min; PostHog UA-filters agent/bot browsers by design.)
 
 ## Milestone 4 — Observability, e2e, CI/CD (~2.5h) — `milestone/m4-ci-observability`
-- [ ] [human] Create Sentry project; DSN into env
+- [x] [human] Create Sentry project; DSN into env
 - [x] [agent] Wire `@sentry/nextjs` (client + server config)
-- [ ] [agent] Throw one deliberate error → [human] confirm capture in the
+- [x] [agent] Throw one deliberate error → [human] confirm capture in the
       Sentry dashboard → [agent] fix it
 - [ ] [human] Read a 10-minute Gherkin primer (so BDD claims stay honest)
 - [x] [agent] One Playwright e2e in Given/When/Then structure: **given** the
