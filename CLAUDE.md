@@ -6,7 +6,8 @@ GraphQL API). Weekend-timeboxed gap project — a demo, not a product.
 ## Prime directives
 
 ### 1. Scope discipline
-- Implement only what the current milestone in `TASKS.md` requires.
+- Implement only what the current milestone in `Documentation/TASKS.md`
+  requires.
 - **Never** touch anything under the PRD's "Non-goals" (checkout/payments,
   auth/accounts, Shopify theme/Liquid, multiple experiments, design polish,
   React Native) without an explicit chat instruction.
@@ -79,11 +80,11 @@ GraphQL API). Weekend-timeboxed gap project — a demo, not a product.
   the interview answers) — the log entries are his words, not yours.
 
 ## Read first
-1. `PRD.md` — the single source of truth: scope, Non-goals, architecture,
-   success criteria. Read it fully before planning any work.
-2. `TASKS.md` — ordered milestones with [human]/[agent]/[pair] tags; work one
-   milestone at a time.
-3. `dev_project_plan.md` — original plan; background on rationale and
-   interview framing.
-4. `AGENTS.md` — Next.js 16 rules: read the bundled guides in
+1. `Documentation/PRD.md` — the single source of truth: scope, Non-goals,
+   architecture, success criteria. Read it fully before planning any work.
+2. `Documentation/TASKS.md` — ordered milestones with [human]/[agent]/[pair]
+   tags; work one milestone at a time.
+3. `Documentation/dev_project_plan.md` — original plan; background on
+   rationale and interview framing.
+4. Next.js 16 breaks from training data: read the bundled guides in
    `node_modules/next/dist/docs/` before writing Next-specific code.
