@@ -72,7 +72,7 @@ Built milestone by milestone over a weekend. Current state:
 
 ### Prerequisites
 
-- Node.js 20+
+- Node.js 22+ (24 LTS recommended, see `.nvmrc`)
 - A Shopify development store with the Headless channel enabled and a
   Storefront API access token ([docs](https://shopify.dev/docs/storefronts/headless/building-with-the-storefront-api/getting-started))
 
