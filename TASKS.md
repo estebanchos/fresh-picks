@@ -84,11 +84,12 @@ the same commit as the code. Never commit to main.
       variant, fire **exposure** event on assignment and **conversion** events
       (CTA click → add-to-cart)
 - [x] [human] Generate test traffic across both variants; let data collect
-- [ ] [human] Screenshot the experiment dashboard
-- [ ] [human] 📝 Check: can you explain assignment, exposure, and conversion
+- [x] [human] Screenshot the experiment dashboard
+- [x] [human] 📝 Check: can you explain assignment, exposure, and conversion
       tracking in one breath, as an engineer?
 
 **✅ Done when:** dashboard shows exposures and conversions for both variants.
+**✅ COMPLETE (2026-07-16)** — experiment live, exposures + funnel conversions in both arms, dashboard screenshot captured. (Debug note: env var name mismatch cost ~30 min; PostHog UA-filters agent/bot browsers by design.)
 
 ## Milestone 4 — Observability, e2e, CI/CD (~2.5h) — `milestone/m4-ci-observability`
 - [ ] [human] Create Sentry project; DSN into env
