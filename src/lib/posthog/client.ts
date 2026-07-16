@@ -16,6 +16,7 @@ export function initPostHog(): void {
     api_host:
       process.env.NEXT_PUBLIC_POSTHOG_HOST ?? "https://us.i.posthog.com",
     defaults: "2026-05-30",
+    debug: process.env.NODE_ENV === "development",
   });
 }
 
