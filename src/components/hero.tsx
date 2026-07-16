@@ -1,5 +1,12 @@
-/* Hero CTA — copy becomes the PostHog A/B variant in Milestone 3. */
+"use client";
+
+import { useHeroCta } from "@/domains/experimentation/hooks";
+
+/* Hero CTA copy is the PostHog A/B experiment: reading the variant fires
+ * exposure; the click fires the first conversion event. */
 export function Hero() {
+  const { copy, trackCtaClick } = useHeroCta();
+
   return (
     <section className="bg-emerald-50 py-14 text-center">
       <div className="mx-auto max-w-2xl px-4">
@@ -12,9 +19,10 @@ export function Hero() {
         <a
           href="#products"
           data-testid="hero-cta"
+          onClick={trackCtaClick}
           className="mt-6 inline-block rounded-md bg-emerald-700 px-6 py-3 font-medium text-white hover:bg-emerald-800"
         >
-          Browse fresh picks
+          {copy}
         </a>
       </div>
     </section>
