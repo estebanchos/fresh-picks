@@ -112,10 +112,10 @@ the same commit as the code. Never commit to main.
 
 ## Milestone 5 — Ship + tell (~1h) — `milestone/m5-ship`
 - [ ] [human] Final deploy check on the production Vercel URL
-- [ ] [agent] Draft README: what it is, stack, how to run, learning-log section
-      scaffolded
-- [ ] [human] Fill the learning-log section in your own words (these are the
-      interview answers — agent must not write them)
+- [x] [pair] README: authored by Carlos (house style); agent added CI badge,
+      live-demo link, and roadmap/tech-stack updates
+- [x] ~~Learning-log section in README~~ — decision: learning log stays in
+      Carlos's private notes, not in the README
 - [ ] [human] Update claims: GraphQL → "Working"; Shopify → "basic familiarity,
       built a headless dev-store storefront"
 - [ ] [pair] Résumé: add the one-line Technical Projects entry and slot it into
