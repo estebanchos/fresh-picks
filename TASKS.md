@@ -53,10 +53,11 @@ the same commit as the code. Never commit to main.
       minimal implementation → refactor → full suite. One behavior at a time,
       8–10 tests total. **No exceptions for this module.**
 - [x] [agent] Wire the tested logic into the cart hooks/UI
-- [ ] [human] 📝 Learning log: one honest sentence on where TDD helped and
+- [x] [human] 📝 Learning log: one honest sentence on where TDD helped and
       where it felt slow
 
 **✅ Done when:** 8–10 unit tests exist that predate the code they test.
+**✅ COMPLETE (2026-07-16)** — 11 logic tests + toCartLines mapper test, strict red-green-refactor throughout; header summary now computed by the tested module.
 
 ## Milestone 2b — BFF + service contract (~1.5h) — `milestone/m2b-bff`
 **[CUT FIRST IF SHORT ON TIME]**
