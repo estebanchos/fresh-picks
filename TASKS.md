@@ -102,20 +102,21 @@ the same commit as the code. Never commit to main.
       cart count updates
 - [x] [agent] GitHub Actions workflow on every push: typecheck → lint →
       Vitest → Playwright
-- [ ] [human] Push repo to GitHub; connect to Vercel: preview deploys per
+- [x] [human] Push repo to GitHub; connect to Vercel: preview deploys per
       branch, auto-deploy on main; add env vars in Vercel
-- [ ] [pair] Prove the boundary: open a PR with a deliberately failing test →
+- [x] [pair] Prove the boundary: open a PR with a deliberately failing test →
       confirm it blocks itself → fix → merge → confirm auto-deploy
 
 **✅ Done when:** a failing-test PR blocks itself and merging to main deploys.
+**✅ COMPLETE (2026-07-16)** — PR #1 blocked red, merged green, auto-deployed to https://fresh-picks-smoky.vercel.app (Gherkin primer read pending, non-blocking). Debug note: CI secret name mismatch, found via gh secret list.
 
 ## Milestone 5 — Ship + tell (~1h) — `milestone/m5-ship`
-- [ ] [human] Final deploy check on the production Vercel URL
-- [ ] [agent] Draft README: what it is, stack, how to run, learning-log section
-      scaffolded
-- [ ] [human] Fill the learning-log section in your own words (these are the
-      interview answers — agent must not write them)
-- [ ] [human] Update claims: GraphQL → "Working"; Shopify → "basic familiarity,
+- [x] [human] Final deploy check on the production Vercel URL (agent-verified: full browse→add-to-cart journey on prod, cart badge updates)
+- [x] [pair] README: authored by Carlos (house style); agent added CI badge,
+      live-demo link, and roadmap/tech-stack updates
+- [x] ~~Learning-log section in README~~ — decision: learning log stays in
+      Carlos's private notes, not in the README
+- [x] [human] Update claims: GraphQL → "Working"; Shopify → "basic familiarity,
       built a headless dev-store storefront"
 - [ ] [pair] Résumé: add the one-line Technical Projects entry and slot it into
       the tailored docx (before the technical round)

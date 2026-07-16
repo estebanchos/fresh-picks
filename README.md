@@ -1,5 +1,6 @@
 # 🥬 Fresh Picks
 
+[![CI](https://github.com/estebanchos/fresh-picks/actions/workflows/ci.yml/badge.svg)](https://github.com/estebanchos/fresh-picks/actions/workflows/ci.yml)
 ![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
 ![Shopify](https://img.shields.io/badge/Shopify-Storefront%20API-96BF48?logo=shopify&logoColor=white)
@@ -11,6 +12,8 @@ A headless Shopify storefront: browse a cursor-paginated product grid, filter
 by collection, open a product page, and add to cart, all against the Shopify
 Storefront GraphQL API. Built with the Next.js App Router, TypeScript strict,
 TanStack Query, and zod validation at every API boundary.
+
+**[Live demo →](https://fresh-picks-smoky.vercel.app)**
 
 > **Why build this?** A weekend-timeboxed learning project: real Shopify and
 > GraphQL work end to end, with a deliberately thin `fetch` client instead of a
@@ -26,14 +29,17 @@ Built milestone by milestone over a weekend. Current state:
 - ✅ **GraphQL client work.** Typed `fetch` client, catalog queries with
   fragments and cursor pagination, cart mutations, TanStack Query wiring,
   browse-to-cart flow working end to end.
-- ⏳ **TDD'd cart logic.** Pure cart math module written strict
-  red-green-refactor with Vitest.
-- ⏳ **BFF + service contract.** A `/api/products` route that validates the
-  upstream response against a versioned zod schema and fails loudly.
-- ⏳ **A/B experimentation.** One PostHog feature-flag experiment (hero CTA
-  copy) with exposure and conversion events.
-- ⏳ **Observability + CI/CD.** Sentry, a Given/When/Then Playwright e2e, and a
-  GitHub Actions pipeline (typecheck, lint, unit, e2e) with Vercel deploys.
+- ✅ **TDD'd cart logic.** Pure cart math module written strict
+  red-green-refactor with Vitest: 11 tests, each written before the code it
+  pins.
+- ✅ **BFF + service contract.** A `/api/products` route that validates the
+  upstream response against a versioned zod schema and fails loudly, with
+  integration tests pinning both paths.
+- ✅ **A/B experimentation.** One PostHog feature-flag experiment (hero CTA
+  copy) with exposure and conversion events, live with traffic in both arms.
+- ✅ **Observability + CI/CD.** Sentry (client + server), a Given/When/Then
+  Playwright e2e, and a GitHub Actions pipeline (typecheck, lint, unit, e2e)
+  gating every merge; Vercel previews per branch, auto-deploy on main.
 
 ## Features
 
@@ -60,7 +66,7 @@ Built milestone by milestone over a weekend. Current state:
 | Data layer | TanStack Query 5, thin typed `fetch` client          |
 | Validation | Zod 4 (schemas + inferred types at boundaries)       |
 | UI         | Tailwind CSS 4                                       |
-| Testing    | Vitest 4 (Playwright e2e planned)                    |
+| Testing    | Vitest 4, Playwright e2e (Given/When/Then)           |
 
 ## Getting Started
 
