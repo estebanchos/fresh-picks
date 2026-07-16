@@ -76,14 +76,14 @@ the same commit as the code. Never commit to main.
 **✅ COMPLETE (2026-07-16)** — grid on /api/products; 502 + explicit error verified manually and pinned by integration tests.
 
 ## Milestone 3 — Experimentation (~2h) — `milestone/m3-experiment`
-- [ ] [human] Create PostHog project; get project API key into `.env.local`
+- [x] [human] Create PostHog project; get project API key into `.env.local`
 - [x] [agent] `src/lib/posthog/` client init + provider (no PII in events)
-- [ ] [human] Create the feature flag / experiment in the PostHog dashboard:
+- [x] [human] Create the feature flag / experiment in the PostHog dashboard:
       hero CTA copy variant A/B
 - [x] [agent] `src/domains/experimentation/` — read the flag, render CTA
       variant, fire **exposure** event on assignment and **conversion** events
       (CTA click → add-to-cart)
-- [ ] [human] Generate test traffic across both variants; let data collect
+- [x] [human] Generate test traffic across both variants; let data collect
 - [ ] [human] Screenshot the experiment dashboard
 - [ ] [human] 📝 Check: can you explain assignment, exposure, and conversion
       tracking in one breath, as an engineer?
